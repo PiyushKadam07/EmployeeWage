@@ -24,40 +24,53 @@ class employee{
     }
 
     validation(){
+        function validation(user, regx) {
+            if (regx.test(user) == false) {
+                throw 'Not Valid';
+            }
+            else {
+                console.log('Valid');
+            }
+        }
+        
         var mobile = "91 9876543210";
         var regx = /^[\d]{2}[\s][6789][\d]{9}$/;
-        if ( regx.test(mobile) == true ){
-            console.log("Valid");
+        console.log('Mobile no.',mobile);
+        try {
+            validation(mobile, regx);
+            }
+        catch(e) {
+            console.error(e);
         }
-        else{
-            throw "Not Valid";
-        }
-
-        var email = "abc@gmail.com";
+        
+        var email = "abc@gmail@.com";
+        console.log('Email',email);
         var regx = /^([A-Za-z0-9._]+)(@)([\w]+)(.)([\w]{3})(.)?([\w]){2,3}?$/;
-        if ( regx.test(email) == true ){
-            console.log("Valid");
+        try {
+            validation(email,regx);
+            }
+        catch(e) {
+            console.error(e);
         }
-        else{
-            throw "Not Valid";
-        }
-
+        
         var uname = "Pk123";
+        console.log('Username',uname);
         var regx = /^([A-Z])([\w]){1}([\w])+$/;
-        if ( regx.test(uname) == true ){
-            console.log("Valid");
+        try {
+            validation(uname,regx);
+            }
+        catch(e) {
+            console.error(e);
         }
-        else{
-            throw "Not Valid";
-        }
-
+        
         var gender = "M";
+        console.log('Gender',gender);
         var regx = /^([MF])$/;
-        if ( regx.test(gender) == true ){
-            console.log("Valid");
-        }
-        else{
-            throw "Not Valid";
+        try {
+            validation(gender,regx);
+            }
+        catch(e) {
+            console.error(e);
         }
     }
 }
